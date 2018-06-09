@@ -1,9 +1,19 @@
 var express = require('express');
-var app = express();
+//var app = express();
 
+
+const app = express();
+
+
+
+const PORT = process.env.PORT || 8080;
+
+
+
+const server = http.createServer(app);
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
-var port = process.env.PORT || 8080;
+//var port = process.env.PORT || 8080;
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -18,6 +28,18 @@ app.get('/', function(req, res) {
     res.render('index');
 });
 
-app.listen(port, function() {
+/*app.listen(port, function() {
     console.log('Our app is running on http://localhost:' + port);
+});*/
+
+
+
+
+
+// Start the server
+
+server.listen(PORT, () => {
+
+console.log('Server listening on: http://localhost:%s', PORT);
+
 });
